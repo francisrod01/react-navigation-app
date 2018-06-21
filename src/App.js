@@ -26,11 +26,11 @@ const DetailsScreen = ({ navigation }) => (
     </SafeAreaView>
 );
 
-const ModalScreen = () => (
+const ModalScreen = ({ navigation }) => (
   <SafeAreaView>
     <Button
       title="Close modal"
-      onPress={() => null}
+      onPress={() => navigation.goBack(null)}
     />
   </SafeAreaView>
 );
