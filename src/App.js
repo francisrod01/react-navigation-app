@@ -58,6 +58,7 @@ const RootNavigator = StackNavigator({
     screen: ModalScreen,
   },
 }, {
+  headerMode: 'none',
   mode: 'modal'
 });
 
