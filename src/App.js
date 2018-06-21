@@ -62,4 +62,4 @@ const RootNavigator = StackNavigator({
 });
 
 
-export default MainAppStack;
+export default RootNavigator;
