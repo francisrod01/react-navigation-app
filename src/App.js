@@ -21,10 +21,20 @@ const DetailsScreen = () => (
     </SafeAreaView>
 );
 
+const MainAppStack = StackNavigator({
+  Home: {
+    screen: HomeScreen,
+    navigationOptions: {
+      title: 'Home Screen',
+    },
+  },
+  Details: {
+    screen: DetailsScreen,
+    navigationOptions: {
+      title: 'Details',
+    },
+  },
+});
 
-export default class App extends React.Component {
-  render() {
-    return (
-    );
-  }
-}
+
+export default MainAppStack;
