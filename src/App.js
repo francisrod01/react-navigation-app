@@ -45,5 +45,14 @@ const MainAppStack = StackNavigator({
   },
 });
 
+const RootNavigator = StackNavigator({
+  MainApp: {
+    screen: MainAppStack,
+  },
+  Modal: {
+    screen: ModalScreen,
+  },
+});
+
 
 export default MainAppStack;
