@@ -21,6 +21,15 @@ const DetailsScreen = () => (
     </SafeAreaView>
 );
 
+const ModalScreen = () => (
+  <SafeAreaView>
+    <Button
+      title="Close modal"
+      onPress={() => null}
+    />
+  </SafeAreaView>
+);
+
 const MainAppStack = StackNavigator({
   Home: {
     screen: HomeScreen,
