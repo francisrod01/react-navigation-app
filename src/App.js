@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, Button } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 
