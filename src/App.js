@@ -1,5 +1,5 @@
-import React from 'react';
-import { SafeAreaView, Button } from 'react-native';
+import React, { Component } from 'react';
+import { SafeAreaView, Button, View, Text } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 
@@ -26,12 +26,18 @@ const DetailsScreen = ({ navigation }) => (
     </SafeAreaView>
 );
 
-const ModalScreen = ({ navigation }) => (
+const ModalScreen = () => (
   <SafeAreaView>
-    <Button
-      title="Close modal"
-      onPress={() => navigation.goBack(null)}
-    />
+    <View style={styles.modalBody}>
+      <Text>
+        This is my modal, there are many like it but this one is mine.
+      </Text>
+
+      <Button
+        title="Close modal"
+        onPress={() => this.changeModalVisibility(false)}
+      />
+    </View>
   </SafeAreaView>
 );
 
@@ -63,4 +69,19 @@ const RootNavigator = StackNavigator({
 });
 
 
-export default RootNavigator;
+class App extends Component {
+  state = {
+    modalVisible: false,
+  };
+
+  changeModalVisibility = (modalVisible = false) => {
+    this.setState({ modalVisible });
+  }
+
+  render() {
+    return ();
+  }
+}
+
+
+export default App;
