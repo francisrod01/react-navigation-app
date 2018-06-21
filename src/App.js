@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, Button, View, Text } from 'react-native';
+import { SafeAreaView, Button, StyleSheet, View, Text } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 
@@ -66,6 +66,22 @@ const RootNavigator = StackNavigator({
 }, {
   headerMode: 'none',
   mode: 'modal'
+});
+
+
+const styles = StyleSheet.create({
+  modalContainer: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.25)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  modalBody: {
+    padding: 20,
+    backgroundColor: '#fff',
+    width: '80%',
+    borderRadius: 5,
+  },
 });
 
 
