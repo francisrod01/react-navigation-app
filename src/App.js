@@ -17,11 +17,11 @@ const HomeScreen = ({ navigation }) => (
   </SafeAreaView>
 );
 
-const DetailsScreen = () => (
+const DetailsScreen = ({ navigation }) => (
   <SafeAreaView>
       <Button
         title="Go to modal"
-        onPress={() => null}
+        onPress={() => navigation.navigate('Modal')}
       />
     </SafeAreaView>
 );
