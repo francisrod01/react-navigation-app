@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
-import { SafeAreaView, Button, StyleSheet, View, Text } from 'react-native';
+import {
+  SafeAreaView,
+  Button,
+  StyleSheet,
+  View,
+  Text,
+  Modal
+} from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 
-const HomeScreen = ({ navigation }) => (
+const HomeScreen = ({ navigation, screenProps }) => (
   <SafeAreaView>
     <Button
       title="Go to details"
@@ -12,16 +19,16 @@ const HomeScreen = ({ navigation }) => (
 
     <Button
       title="Go to modal"
-      onPress={() => navigation.navigate('Modal')}
+      onPress={() => screenProps.changeModalVisibility(true)}
     />
   </SafeAreaView>
 );
 
-const DetailsScreen = ({ navigation }) => (
+const DetailsScreen = ({ screenProps }) => (
   <SafeAreaView>
       <Button
         title="Go to modal"
-        onPress={() => navigation.navigate('Modal')}
+        onPress={() => screenProps.changeModalVisibility(true)}
       />
     </SafeAreaView>
 );
@@ -94,8 +101,36 @@ class App extends Component {
     this.setState({ modalVisible });
   }
 
+  modalContent = () => (
+    <Modal
+      visible={this.state.modalVisible}
+      animationType="fade"
+      onRequestClose={this.changeModalVisibility}>
+      <SafeAreaView style={styles.modalContainer}>
+        <View style={styles.modalBody}>
+          <Text>
+            This is my modal, there are many like it but this one is mine.
+          </Text>
+
+          <Button
+            title="Close modal"
+            onPress={() => this.changeModalVisibility(false)}
+          />
+        </View>
+      </SafeAreaView>
+    </Modal>
+  );
+
   render() {
-    return ();
+    return (
+      <View style={{ flex: 1 }}>
+        <MainAppStack
+          screenProps={{ changeModalVisibility: this.changeModalVisibility }}
+        />
+
+        { this.modalContent() }
+      </View>
+    );
   }
 }
 
