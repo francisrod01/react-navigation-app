@@ -12,6 +12,15 @@ const HomeScreen = ({ navigation }) => (
   </SafeAreaView>
 );
 
+const DetailsScreen = () => (
+  <SafeAreaView>
+      <Button
+        title="Go to modal"
+        onPress={() => null}
+      />
+    </SafeAreaView>
+);
+
 
 export default class App extends React.Component {
   render() {
