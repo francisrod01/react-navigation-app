@@ -45,10 +45,42 @@ const MainAppStack = StackNavigator({
         duration: 750,
         easing: Easing.out(Easing.poly(4)),
         timing: Animated.timing,
-      }
+      },
+      screenInterpolator: interpolator,
+      headerTitleInterpolator: interpolator,
+      headerLeftInterpolator: interpolator,
+      headerRightInterpolator: interpolator,
     }
   }
 });
+
+const interpolator = (sceneProps) => {
+  const { layout, position, scene } = sceneProps;
+
+  const opacity = position.interpolate({
+    inputRange: [scene.index - 1, scene.index, scene.index + 1],
+    outputRange: [0, 1, 0],
+  });
+
+  const scale = position.interpolate({
+    inputRange: [scene.index - 1, scene.index, scene.index + 1],
+    outputRange: [0.8, 1, 1],
+  });
+
+  const height = layout.initHeight;
+  const translateY = position.interpolate({
+    inputRange: [scene.index - 1, scene.index, scene.index + 1],
+    outputRange: [height, 0, 0],
+  });
+
+  return {
+    opacity,
+    // transform: [
+    //   { scale },
+    //   { translateY },
+    // ]
+  }
+}
 
 
 export default MainAppStack;
